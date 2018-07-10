@@ -62,9 +62,10 @@ if [ $(systemd-detect-virt -c) != "none" ]; then
 fi
 
 # TEMP N
-# sudo apt-get install npm
-# sudo npm install -g n
-# sudo n 6.9.2
+sudo apt-get install -y npm 
+sudo apt-get install -y nodejs
+sudo npm install -g npm
+sudo n 8.10.3
 
 # ----------------------------------
 # Variables
@@ -72,9 +73,9 @@ fi
 
 EDIT=nano
 
-GIT_ORIGIN="bpl-mainnet"
+GIT_ORIGIN="testnet"
 
-PORT="9030"
+PORT="9028"
 
 LOC_SERVER="http://localhost"
 
@@ -85,7 +86,7 @@ SNAPURL="https://snapshots.blockpool.io/current"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-BPLNET=""
+BPLNET="testnet"
 
 SWITCHNET=0
 
@@ -773,7 +774,7 @@ function nvm {
   if [ "$return_" == 0 ]; then
     echo -e "$(red "      ✘ Forever is not installed, installing...")"
     ### Install forever ###
-    npm install forever -g >>install.log 2>&1
+    sudo npm install -g forever  >>install.log 2>&1
     echo -e "$(green "      ✔ Forever has been installed")"
   else
     echo -e "$(green "      ✔ Forever is already installed")"
@@ -794,7 +795,7 @@ function inst_bpl {
   # proc_vars
   cd $HOME
   mkdir BPL-node
-  git clone https://github.com/blockpool-io/BPL-node.git 2>/dev/null
+  git clone https://github.com/cyrus19901/BPL-node.git 2>/dev/null
   cd BPL-node
   git checkout $GIT_ORIGIN 2>/dev/null
   git pull origin $GIT_ORIGIN 2>/dev/null
