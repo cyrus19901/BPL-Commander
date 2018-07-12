@@ -64,9 +64,13 @@ fi
 # TEMP N
 sudo apt-get install -y npm 
 sudo apt-get install -y nodejs
-sudo npm install -g npm
+sudo npm install -g npm@latest
 sudo n 8.10.3
-
+sudo apt-get  install -y postgresql postgresql-contrib
+sudo npm install -g grunt-cli
+sudo npm install -g forever
+sudo apt-get install -g python-psycopg2
+sudo apt-get install -g libpq-dev 
 # ----------------------------------
 # Variables
 # ----------------------------------
